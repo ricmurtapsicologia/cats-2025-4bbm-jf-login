@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO / Compartilhamento -->
+  <title>Acesso Restrito — Curso de Atendimento a Tentativas de Suicídio (CATS) VII • 4º BBM - Juiz de Fora | CBMMG</title>
+  <meta name="description" content="Portal de acesso ao CATS VII do CBMMG (4º BBM - Juiz de Fora). Informe sua matrícula para entrar no Curso de Atendimento a Tentativas de Suicídio 2025." />
+  <meta name="keywords" content="CATS 2025, CATS VII, CBMMG, 4º BBM, Juiz de Fora, acesso restrito, atendimento a tentativas de suicídio, curso presencial" />
+  <meta name="author" content="Major BM Richelmy Murta Pinto" />
+
+  <meta property="og:title" content="Acesso Restrito — CATS VII • 4º BBM - Juiz de Fora" />
+  <meta property="og:description" content="Entre com sua matrícula para acessar o Curso de Atendimento a Tentativas de Suicídio (CBMMG) — CATS VII." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ricmurtapsicologia.github.io/cats-2025-4bbm-jf/" />
+  <meta property="og:image" content="https://i.pinimg.com/736x/6a/ba/44/6aba4447815cfeec3124c37ba7aac4d9.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="https://i.pinimg.com/736x/6a/ba/44/6aba4447815cfeec3124c37ba7aac4d9.jpg" />
+
+  <!-- Fontes (skin) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+  <!-- SKIN (cores e tipografia do site principal) -->
+  <style>
+    :root{
+      --brand:#ff7f0e; --brand-2:#ff9d47;
+      --glass:rgba(255,255,255,.06); --glass-2:rgba(255,255,255,.10);
+      --stroke:rgba(255,255,255,.14);
+      --text-1:#eef2ff; --text-2:#cbd5e1; --text-3:#94a3b8;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--text-1);
+      margin:0; min-height:100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      background:
+        radial-gradient(1200px 600px at 100% -10%,rgba(255,140,0,.25),transparent 60%),
+        radial-gradient(1200px 600px at -10% 110%,rgba(0,51,102,.25),transparent 60%),
+        linear-gradient(180deg,#0b1220 0%,#0f172a 60%,#0b1220 100%),
+        url('https://i.pinimg.com/736x/6a/ba/44/6aba4447815cfeec3124c37ba7aac4d9.jpg') center/cover no-repeat;
+      text-align:center; overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+
+    header{
+      background:var(--glass);
+      backdrop-filter:blur(10px);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 20px; margin-bottom:18px; max-width:92%;
+    }
+    header h1{font-size:2rem; margin:0 0 6px; font-weight:800; color:#ffe08a}
+    header h2{font-size:1rem; margin:0; color:var(--text-2); font-weight:700}
+
+    .login-container{
+      background:var(--glass);
+      backdrop-filter:blur(10px);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px; width:100%; max-width:420px;
+      display:flex; flex-direction:column; align-items:center;
+    }
+    .login-container h1{font-size:1.2rem; color:#ffe08a; margin:0 0 14px; font-weight:800}
+    .login-container input{
+      width:86%; max-width:340px; padding:12px 12px;
+      border-radius:12px; border:1px solid var(--stroke);
+      background:var(--glass-2); color:var(--text-1);
+      font-size:1rem; outline:none;
+    }
+    .login-container input::placeholder{color:var(--text-3)}
+    .login-container input:focus{border-color:#ffd166; box-shadow:0 0 0 3px rgba(255,209,102,.25)}
+
+    .btn{
+      width:86%; max-width:340px; margin-top:10px;
+      background:linear-gradient(180deg,var(--brand),var(--brand-2));
+      color:#111; font-weight:800; letter-spacing:.2px;
+      border:none; border-radius:12px; padding:12px 16px;
+      cursor:pointer; box-shadow:var(--shadow); text-transform:uppercase;
+      transition:transform .15s ease, filter .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px); filter:brightness(1.05)}
+    .btn:active{transform:translateY(0)}
+
+    #mensagem{display:none; margin-top:10px; font-size:.95rem}
+    .visually-hidden{
+      position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+    }
+
+    footer{
+      margin-top:20px; padding:12px 16px;
+      background:var(--glass); border:1px solid var(--stroke);
+      border-radius:12px; box-shadow:var(--shadow);
+      color:var(--text-2); font-size:.9rem;
+    }
+
+    @media (max-width:768px){
+      header h1{font-size:1.7rem}
+      .login-container{padding:20px}
+      .login-container input, .btn{width:92%}
+      footer{display:flex; flex-direction:column; gap:4px}
+    }
+  </style>
+
+  <!-- (Opcional) CSS externo adicional -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Curso de Atendimento a Tentativas de Suicídio 2025</h1>
+    <h2>CATS VII • 4º BBM - Juiz de Fora — CBMMG</h2>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main role="main">
+    <section class="login-container" aria-labelledby="login-title">
+      <h1 id="login-title">Acesso Restrito</h1>
+
+      <label for="matricula" class="visually-hidden">Matrícula</label>
+      <input
+        type="text"
+        id="matricula"
+        autocomplete="off"
+        placeholder="Digite sua matrícula"
+        aria-required="true"
+      />
+
+      <button type="button" class="btn">Acessar</button>
+
+      <p id="mensagem" role="alert" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>&copy; 2025 Major BM Richelmy Murta Pinto. Todos os direitos reservados.</footer>
+
+  <!-- JavaScript -->
+  <script>
+    // ===== Base de matrículas válidas (original) =====
+    const baseValidas = [
+      "1368646","1359843","1430750","1605971","1603687","1613892",
+      "1674993","1075795","1363845","1550375","1480128","1479278",
+      "1554559","1525120","1245661","1549880","1479088","1524776",
+      "1644525","1788868","terapiadoesquema","5212651","9104046",
+      "1151258","12597010","1725936","1728815","1726678","1728831",
+      "1726033","1636315","1730340","1729896","1726157","1727080",
+      "1729581","1638535","1644772","1645365","1728708","1729953",
+      "1645092","1638022","1641349","1728120","1729458","1726066",
+      "1728054","1639798","1727049","1727361","1642388","1727841",
+      "1641000","1605260","1730084","1365303","1479666","1311588",
+      "1637024","1822410","1317288","1644467","1822899","1640556",
+      "05631415658","1655562","1525096","1333681","1644707","1821719",
+      "1365584","1725829","1635762","1361757","1479674","1554138",
+      "1641323","1785906","1766377","1525427","1317809","7200064",
+      "1722057","1729334","1636117","1554880","01188250620","7488890",
+      "1368687","1644301","1821669","1554914","1272707","1317080",
+      "1550615","294424742","07360928621","professoraadriana","1824275",
+      "1786110","1728849","1727296","1822418","1789999","1725886",
+      "1824226","1636364","1729839","1824259","1786847","1824234",
+      "2428598","1729961","1824200","1725993","2139499","1479666",
+      "2240572","1821826","2428636","1824358","2414880","2428547",
+      "1824341","2428610","2428557","1730126","2428628","2242010",
+      "2428709","2400570","1824267","1824242","1482058","1480607",
+      "1481555","1481506","1317734","1528124","1479435","1480478",
+      "1530138","1481775","1497497","1361047","1480367","1520653",
+      "1481639","1481290","1481504","1528298","1480508","1360270",
+      "63198428149","1527654","1727312","1551365","1639012","1642172",
+      "1639558","1639475","1642081","1637321","1638600","1638725",
+      "1645050","1644046","1645084","1645001","1649946","1650324",
+      "1728047","1640416","1726082","1726884","1726058","1792258",
+      "1794197","1790393","1794650","1787779","1792035","1788363",
+      "1794577","1793322","1729706","1794809","1637297","1638758",
+      "1639384","1638907","1641117","1641133","1641448","1637982",
+      "1638253","1640523","1643188","1641588","1650084","1650001",
+      "1650076","1646017","1658145","1728682","1729375","1726348",
+      "1730738","1729821","1727239","1729078","1786144","1791987",
+      "1786904","1794288","1787399","1788868","1794072","1794445"
+    ];
+
+    // ===== Novas matrículas (somente Nº BM) =====
+    // (Removidas integralmente: 178.999-9 e 172.588-6; Acrescidas: 184.294-7 e 184.209-5)
+    const novasMatriculas = [
+      "1722016","1805340","1644780","1364496","1552876","1636505",
+      "1728302","1840735","1786110","1263086","1843556","1843812",
+      "1365485","1529411","1362573","1805407","1840685","1790302",
+      "1823228","1822659","1729961","1840768","1554104","1765627",
+      "1479831","1841287","1638964","1554559","05935646501","85208698587",
+      "1482702","1728708","1727585","1479625","1787878","1823384",
+      "1842947","1842095"
+    ];
+
+    // ===== Normalização/limpeza =====
+    const normalize = s => (s||"").toString().replace(/\D+/g,""); // mantém só dígitos
+
+    // Blocklist explícita (para remoção integral, com e sem pontuação)
+    const removerNorm = ["178.999-9","172.588-6"].map(normalize);
+
+    // Junta listas, remove duplicados e bloqueados
+    const rawAll = [...baseValidas, ...novasMatriculas];
+
+    // remove qualquer item cujo "só dígitos" bata com blocklist
+    const rawFiltered = rawAll.filter(v => !removerNorm.includes(normalize(v)));
+
+    // conjuntos finais para checagem: literal e normalizado
+    const allowedStrings = new Set(rawFiltered.map(v => String(v))); // aceita strings literais (ex.: 'professoraadriana')
+    const allowedDigits  = new Set(
+      rawFiltered
+        .filter(v => /\d/.test(v))
+        .map(v => normalize(v))
+    );
+
+    // ===== UI =====
+    const matriculaInput = document.getElementById("matricula");
+    const mensagem = document.getElementById("mensagem");
+    const botao = document.querySelector("button.btn");
+
+    const exibirMensagem = (texto, tipo) => {
+      mensagem.textContent = texto;
+      mensagem.style.display = "block";
+      mensagem.style.color = tipo === "sucesso" ? "#22c55e" : "#ff6f61";
+    };
+
+    const verificarMatricula = () => {
+      const valor = (matriculaInput.value || "").trim();
+      if(!valor){ exibirMensagem("Por favor, insira sua matrícula.", "erro"); return; }
+
+      const valNorm = normalize(valor);
+
+      const ok =
+        allowedStrings.has(valor) ||                 // aceita exatamente como cadastrado
+        (valNorm && allowedDigits.has(valNorm));     // aceita variações com/sem pontuação
+
+      if(ok){
+        exibirMensagem("Acesso permitido. Redirecionando...", "sucesso");
+        setTimeout(()=>{ window.location.href = "https://ricmurtapsicologia.github.io/cats-2025-4bbm-jf/"; }, 1200);
+      }else{
+        exibirMensagem("Matrícula inválida! Por favor, tente novamente.", "erro");
+      }
+    };
+
+    botao.addEventListener("click", verificarMatricula);
+    matriculaInput.addEventListener("keydown", e => { if(e.key === "Enter") verificarMatricula(); });
+
+    // Scroll suave para âncoras (se houver)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener("click", e=>{
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute("href"));
+        if(t) t.scrollIntoView({behavior:"smooth"});
+      });
+    });
+  </script>
+</body>
+</html>
