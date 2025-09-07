@@ -41,11 +41,9 @@
       color:var(--text-1);
       margin:0; min-height:100vh;
       display:flex; flex-direction:column; align-items:center; justify-content:center;
-      background:
-        radial-gradient(1200px 600px at 100% -10%,rgba(255,140,0,.25),transparent 60%),
-        radial-gradient(1200px 600px at -10% 110%,rgba(0,51,102,.25),transparent 60%),
-        linear-gradient(180deg,#0b1220 0%,#0f172a 60%,#0b1220 100%),
-        url('https://i.pinimg.com/736x/6a/ba/44/6aba4447815cfeec3124c37ba7aac4d9.jpg') center/cover no-repeat;
+      /* Fundo somente imagem (sem overlay) */
+      background: url('https://i.pinimg.com/736x/6a/ba/44/6aba4447815cfeec3124c37ba7aac4d9.jpg') center/cover no-repeat fixed;
+      background-color:#0b1220; /* fallback */
       text-align:center; overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
@@ -101,14 +99,15 @@
       margin-top:20px; padding:12px 16px;
       background:var(--glass); border:1px solid var(--stroke);
       border-radius:12px; box-shadow:var(--shadow);
-      color:var(--text-2); font-size:.9rem;
+      color:var(--text-2); font-size:.95rem; line-height:1.5;
+      display:flex; flex-direction:column; align-items:center;
     }
-
+    footer .coord { font-weight:800; color:#ffe08a; }
+    footer .copy  { margin-top:6px; color:var(--text-2); }
     @media (max-width:768px){
       header h1{font-size:1.7rem}
       .login-container{padding:20px}
       .login-container input, .btn{width:92%}
-      footer{display:flex; flex-direction:column; gap:4px}
     }
   </style>
 
@@ -143,7 +142,10 @@
   </main>
 
   <!-- Rodapé -->
-  <footer>&copy; 2025 Major BM Richelmy Murta Pinto. Todos os direitos reservados.</footer>
+  <footer>
+    <div class="coord"><strong>Coordenação:</strong> 1º Tenente BM Eduardo Procópio Loures Araújo</div>
+    <div class="copy">&copy; 2025 Major BM Richelmy Murta Pinto. Todos os direitos reservados.</div>
+  </footer>
 
   <!-- JavaScript -->
   <script>
@@ -188,8 +190,7 @@
       "1786904","1794288","1787399","1788868","1794072","1794445"
     ];
 
-    // ===== Novas matrículas (somente Nº BM) =====
-    // (Removidas integralmente: 178.999-9 e 172.588-6; Acrescidas: 184.294-7 e 184.209-5)
+    // ===== Novas matrículas (somente Nº BM, dígitos já normalizados) =====
     const novasMatriculas = [
       "1722016","1805340","1644780","1364496","1552876","1636505",
       "1728302","1840735","1786110","1263086","1843556","1843812",
@@ -203,22 +204,16 @@
     // ===== Normalização/limpeza =====
     const normalize = s => (s||"").toString().replace(/\D+/g,""); // mantém só dígitos
 
-    // Blocklist explícita (para remoção integral, com e sem pontuação)
+    // Blocklist explícita (remoção integral, com e sem pontuação)
     const removerNorm = ["178.999-9","172.588-6"].map(normalize);
 
-    // Junta listas, remove duplicados e bloqueados
+    // Junta listas e remove bloqueados
     const rawAll = [...baseValidas, ...novasMatriculas];
-
-    // remove qualquer item cujo "só dígitos" bata com blocklist
     const rawFiltered = rawAll.filter(v => !removerNorm.includes(normalize(v)));
 
-    // conjuntos finais para checagem: literal e normalizado
-    const allowedStrings = new Set(rawFiltered.map(v => String(v))); // aceita strings literais (ex.: 'professoraadriana')
-    const allowedDigits  = new Set(
-      rawFiltered
-        .filter(v => /\d/.test(v))
-        .map(v => normalize(v))
-    );
+    // conjuntos finais para checagem
+    const allowedStrings = new Set(rawFiltered.map(v => String(v)));
+    const allowedDigits  = new Set(rawFiltered.filter(v => /\d/.test(v)).map(v => normalize(v)));
 
     // ===== UI =====
     const matriculaInput = document.getElementById("matricula");
@@ -236,10 +231,7 @@
       if(!valor){ exibirMensagem("Por favor, insira sua matrícula.", "erro"); return; }
 
       const valNorm = normalize(valor);
-
-      const ok =
-        allowedStrings.has(valor) ||                 // aceita exatamente como cadastrado
-        (valNorm && allowedDigits.has(valNorm));     // aceita variações com/sem pontuação
+      const ok = allowedStrings.has(valor) || (valNorm && allowedDigits.has(valNorm));
 
       if(ok){
         exibirMensagem("Acesso permitido. Redirecionando...", "sucesso");
@@ -263,3 +255,4 @@
   </script>
 </body>
 </html>
+
